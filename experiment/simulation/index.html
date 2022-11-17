@@ -1,13 +1,108 @@
-<!DOCTYPE html>
+<!DOCTYPE >
+
 <html>
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+<title>Discrete Mathematics Vlabs Experiments</title>
+<meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"
+/>
+<link href="./css/main.css" rel="stylesheet" />
 </head>
-<body>
-		<!-- Your code goes here-->
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+<body>
+<h1>TOWER OF HANOI</h1>
+<p>
+    Move all discs to last pole, large dics cant be placed on small disc.Try to finish in 127 moves.
+</p>
+
+<button type="button" class="collapsible">Instructions</button>
+    
+    <div class="content">
+
+	<ul>
+		<li>Click on the node to change node colour.</li>
+		<li>Correct edges turns GREEN.</li>
+		<li>COLOURS</li>
+		<li><ul>
+			<li>RED</li>
+			<li>BLUE</li>
+		</ul></li>
+		<li>Click NEXT To get new graph</li>
+	  </ul>
+    </div>
+
+	<script>
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+		
+		for (i = 0; i < coll.length; i++) {
+		  coll[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var content = this.nextElementSibling;
+			if (content.style.display === "block") {
+			  content.style.display = "none";
+			} else {
+			  content.style.display = "block";
+			}
+		  });
+		}
+	</script>
+		
+
+<div id="steps">
+	<div class="button button3 ",id="next"><h3 >get one step</h3></div>
+	<div class="steps">        
+	 <div><h2 style="padding: 1px; list-style-type: circle; display: inline-block;  border: 0px solid black">Move 1 from A to C</h2></div>    
+	 <div><h2 style="padding: 1px; list-style-type: circle; display: inline-block; border: 0px solid black">Move 2 from A to B</h2></div>  
+	 <div><h2 style="padding: 1px; list-style-type: circle; display: inline-block;  border: 0px solid black">Move 3 from C to B</h2></div>
+	 <div><h2 style="padding: 1px; list-style-type: circle; display: inline-block;  border: 0px solid black">Move 1 from C to A</h2></div>
+	</div>
+	 
+ </div>
+
+
+
+<div id="algo">
+    <div class="button button2", id="next1"><h3>Algorithm</h3></div>
+    <div class="algo">   
+		     
+        <div><h2 style="padding: 0px; list-style-type: circle; display: inline-block;  border: 0px solid black">step </h2> </div>    
+        <div><h2 style="padding: 0px; list-style-type: circle; display: inline-block; border: 0px solid black">step 1 </h2></div>  
+        <div><h2 style="padding: 0px; list-style-type: circle; display: inline-block;  border: 0px solid black">step 2</h2></div>
+        <div><h2 style="padding: 0px; list-style-type: circle; display: inline-block;  border: 0px solid black">step 3 </h2></div>
+    </div>
+</div>
+   
+
+
+<button class="button button1" onClick="Refresh()">Restart</button>
+
+<script>
+    function Refresh() {
+        window.parent.location = window.parent.location.href;
+    }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+
+<div id="canves">
+    <div class="curtain"></div>
+    <ul id="score-panel">
+        <li>
+            <h1> <span id="moves-num"></span><span> Moves </span></h1>
+        </li>
+    </ul>
+    <ul class="tower" id="tower-1"></ul>
+    <ul class="tower" id="tower-2"></ul>
+    <ul class="tower" id="tower-3"></ul>
+</div>
+
+<!-- Load application code at the end to ensure DOM is loaded -->
+<script type="module" src="./js/main.js"></script>
 </body>
 </html>
+
