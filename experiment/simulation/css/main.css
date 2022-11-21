@@ -1,6 +1,4 @@
-.steps>*{display:none}
 
-.algo>*{display:none}
 
 html, body, #canves #score-panel #steps #algo {
     margin: 0;
@@ -13,22 +11,73 @@ html, body {
 *, *:before, *:after {
     box-sizing: border-box;
 }
+/* disabling text selection */
 body {
-    font-family: helvetica;
-    font-size: 14px;
-    max-width: 800px;
-    margin: 20 auto;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+text {
+  pointer-events:none;
+}
+
+.input-error{
+  outline: 1px solid red;
+}
+#jqxslider{
+  width: 25x;
+  height:5px;
+  display:absolute;
+  top:30%;
+  left:33%;
+  justify-content: center;
+  position:absolute;
+}
+input[type=button]{
+  background-color: #288EC8;
+  border: none;
+  color: white;
+  display:absolute;
+  top:30%;
+  left:65%;
+  justify-content: center;
+  position:absolute;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+input[type=button]:hover {
+  background-color: #949494;
+  color: rgb(5, 5, 5);
+}
+
+.container {
+  margin-top: 1%;
+}
+
+.column {
+  text-align: center;
 }
 #canves {
-    width: 650px;
-    height: 400px;
+    width:50% ;
+    height: 50%;
     display: flex;
     padding: 30px;
     justify-content: center;
     align-items: flex-end;
-    position: relative;
-    border: 3px solid #299;
-    margin: 10px 10px 10px 10px;
+    position: absolute;
+    margin: 5px;
+    top: 35%;
+    left: 25%;
+    border: 0.2rem solid black;
 }
 #canves #score-panel {
     width: 180px;
@@ -51,33 +100,6 @@ body {
     font-size: 7px;
     line-height: 1;
     
-}
-
-#steps {
-    width: 25x;
-    height:10px;
-    display:relative;
-    padding: 30px;
-    top:200px;
-    left: 1100px;
-    justify-content: center;
-    align-items:flex-end;
-    position: absolute;
-    border: 0px solid #299;
-    margin: 0px 0px 0px 0px;
-}
-#algo {
-    width: 25x;
-    height:10px;
-    display:relative;
-    padding: 30px;
-    top:200px;
-    left: 160px;
-    justify-content: center;
-    align-items:flex-end;
-    position: absolute;
-    border: 0px solid #299;
-    margin: 0px 0px 0px 0px;
 }
 
 
@@ -214,44 +236,6 @@ body {
 h1 {
     font-size: 2em;
   }
-h3 {
-    font-size: 0.9em;
-  }
-  .collapsible {
-    background-color: #777;
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 83%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-  }
-
-  .active, .collapsible:hover {
-    background-color: #555;
-  }
-  .content {
-    padding: 0 18px;
-    display: none;
-    width: 83%;
-    overflow: hidden;
-    background-color: #f1f1f1;
-  }
-
-ul {
-	list-style:disc ;
-}
-	
-ul li::before {
-	  	
-	color: rgb(0, 0, 0);
-	font-weight: bold;
-	display: inline-block; 
-	width: 1em;
-	margin-left: -1em;
-}
 
   .button1 {
     background-color: rgb(255, 254, 254); 
@@ -291,22 +275,18 @@ ul li::before {
     color: rgb(14, 13, 13);
   }
   
-  .button3 {
-    background-color: rgb(255, 254, 254); 
-    border: 2px solid #5491a5;
-    background-color: #90a9f0; /* Green */
-    color: white;
-    padding: 6px 18px;
-    
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  
-  .button3:hover {
-    background-color: #008CBA;
-    color: rgb(14, 13, 13);
-  }
-  
+.instructions-box {
+  max-height: 50px;
+  overflow: hidden;
+  transition: all .5s ease;
+ 
+}
+
+.instructions-box.expand {
+  max-height: 400px;
+}
+
+.v-instruction-container {
+  border:.2rem solid #97d23d;
+ 
+}
