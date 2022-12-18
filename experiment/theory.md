@@ -14,7 +14,8 @@ This function is perfectly legal C, and it operates correctly. Notice that the f
 
 The call to add_array from inside add_array is called a recursive call.
 
-#### Example: The Factorial Function
+### Example: The Factorial Function
+
 One of the classic examples of recursion is the factorial function. Although factorial is not the world's most interesting function, it will provide us with many useful observations.
 
 Recall that factorial, which is written n!, has the following definition:
@@ -53,9 +54,11 @@ Let's compare the two versions:
 - The iterative version has two local variables; the recursive version has none.
 - The iterative version has three statements; the recursive version has one.
 - The iterative version must save the solution in an intermediate variable before it can be returned; the recursive version calculates and returns its result as a single expression.
+
 Recursion simplifies the fact function! It does so by making the computer do more work, so that you can do less work.
 
-#### Writing Recursive Functions
+### Writing Recursive Functions
+
 To successfully apply recursion to a problem, you must be able to break the problem down into subparts, at least one of which is similar in form to the original problem. For example, suppose we want to count the number of occurrences of the number 42 in an array of n integers. The first thing we should do is write the header for our function; this will ensure that we know what the function is supposed to do and how it is called:
 
 int count_42s(int array[], int n);
@@ -63,6 +66,7 @@ To use recursion on this problem, we must find a way to break the problem down i
 - counting the number of times that 42 appears in the first n-1 elements of the array (this is a subproblem that is similar in form to the original problem);
 - counting the number of times that 42 appears in the n-th element of the array (i.e. determining whether the n-th element is 42); and
 - adding these two sums together and returning the result.
+
 Part 1 of this decomposition suggests the following recursive call:
 count_42s(array, n-1);
 If successful, this recursive call will count all of the occurrences of the number 42 in the first n-1 positions of the array and return the sum (we will discuss the conditions that must hold for a recursive call to be successful in the Section 5; until then, we will assume that all recursive calls work properly). We must now determine how to use this result. If the last element in the array is not 42, then the number of 42s in the entire array is the same as the number of 42s in all but the last element of the array. If the last number in the array is 42, then the number of 42s in the entire array is one more than the number found in the subarray. This suggests the following code:
@@ -125,7 +129,8 @@ These examples demonstrate that there may be many ways to break a problem down i
 - write code to combine, augment, or modify the results of the recursive call(s) if necessary to construct the desired return value or create the desired side--effects; and
 - write base case(s) to handle any situations that are not handled properly by the recursive portion of the program.
 
-#### Thinking About Recursion
+### Thinking About Recursion
+
 How should you think about a recursive subprogram? Do not immediately try to trace through the execution of the recursive calls; doing so is likely to simply confuse you. Rather, think of recursion as working via the power of wishful thinking. Consider the operation of fact(4) using the recursive formulation of fact. 4 is not 1, so the recursive case holds. The recursive case says to multiply fact(3) by 4. Here is where the wishful thinking comes in: wish for fact(3) to be calculated. Because this is a recursive call, your wish will be granted. You now know that fact(3)=6. So fact(4) is equal to 6 times 4, or 24 (which is just what it's supposed to be).
 
 An analogy you can use to help you think this way is corporate management. When the CEO of a corporation tells a vice-president to perform some task, the CEO doesn't worry about how the task is accomplished; he or she relies on the vice-president to get it done. You should think the same way when you are programming recursively. Delegate the subtask to the recursive call; don't worry about how the task actually gets done. Worry instead whether the top-level task will get done properly, given that all the recursive calls work properly.
