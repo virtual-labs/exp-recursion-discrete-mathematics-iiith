@@ -2,37 +2,89 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "Which of the following recursive formula can be used to find the factorial of a number?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "fact(n)=n*fact(n)",
+        "b": "fact(n)=n*fact(n+1)",
+        "c": "fact(n)=n*fact(n-1)",
+        "d": "fact(n)=n*fact(1)"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "",
+        "b": "",
+        "c": "fact(n)=n*fact(n-1) canbe used to find the factorial of a number",
+        "d": ""
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "THe time complexity of recursive implementation to find the factorial of a number is ______",
+      "answers": {
+        "a": "O(n)",
+        "b": "O(1)",
+        "c": "O(n^2)",
+        "d": "o(n^3)"
+      },
+      "explanations": {
+        "a": "Time complexity of recursive impelementation to find factorial is n as we iterate through a loop n times with O(1) inside the loop ",
+        "b": "",
+        "c": "",
+        "d": ""
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Which of the following properties of the recursive function is/are correct?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Recursion helps to create a short code",
+        "b": "Recursion is effective where terms are generated successively to compute a value",
+        "c": "Recursion is useful for branching process",
+        "d": "All the above"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": "All three are true about recursion"
       },
-      "correctAnswer": "c",
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following is the base case in recursive implementation to find the factorial of a number?",
+      "answers": {
+        "a": "return 1",
+        "b": "fact(n)=n*fact(n-1)",
+        "c": "if(n==0) return 0",
+        "d": "if(n==1) return 1"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": "factorial of 1 is 1 so if(n==1 ) return 1 is the base case"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following is true?",
+      "answers": {
+        "a": "Recursion is always better than iteration",
+        "b": "Recursion uses more memory compared to iteration",
+        "c": " Recursion uses less memory compared to iteration",
+        "d": "Iteration is always better and simpler than recursion"
+        
+      },
+      "explanations": {
+        "a": "",
+        "b": "Recursion uses more memory compared to iteration because every time the recursive function is called, the function call is stored in stack",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
     }
   ]
