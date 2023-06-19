@@ -2,24 +2,41 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "In recursion, the condition for which the function will stop calling itself is ____________",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Base case",
+        "b": "Worst case",
+        "c": "Best case",
+        "d": "None of the above"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "For recursion to end at some point, there always has to be a condition for which the function will not call itself. This condition is known as base case.",
+        "b": "",
+        "c": "",
+        "d": ""
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Recursion is a method in which the solution of a problem depends on ____________",
+      "answers": {
+        "a": "Larger instances of different problems",
+        "b": "Larger instances of the same problem",
+        "c": "Smaller instances of the same problem",
+        "d": "Smaller instances of different problems"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "In recursion, the solution of a problem depends on the solution of smaller instances of the same problem.",
+        "d": ""
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "",
       "answers": {
         "a": "answer1",
         "b": "answer2",
@@ -27,10 +44,10 @@
         "d": "answer4"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "",
+        "b": "Explanation",
+        "c": "Explanation",
+        "d": "Explanation"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
