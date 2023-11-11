@@ -1,93 +1,102 @@
-<!DOCTYPE >
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
-<title>Discrete Mathematics Vlabs Experiments</title>
-<meta
-    name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"
-/>
-<link href="./css/main.css" rel="stylesheet" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Tower of Hanoi: Practice</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+	
+	
 </head>
 
-<body>
-<h1>TOWER OF HANOI</h1>
-<p>
-    Move all discs to last pole, large dics cant be placed on small disc.Try to finish in 127 moves.
-</p>
 
-<button type="button" class="collapsible">Instructions</button>
-    
-    <div class="content">
 
-	<ul>
-		<li>Click on the node to change node colour.</li>
-		<li>Correct edges turns GREEN.</li>
-		<li>COLOURS</li>
-		<li><ul>
-			<li>RED</li>
-			<li>BLUE</li>
-		</ul></li>
-		<li>Click NEXT To get new graph</li>
-	  </ul>
-    </div>
 
-	<script>
-		var coll = document.getElementsByClassName("collapsible");
-		var i;
-		
-		for (i = 0; i < coll.length; i++) {
-		  coll[i].addEventListener("click", function() {
-			this.classList.toggle("active");
-			var content = this.nextElementSibling;
-			if (content.style.display === "block") {
-			  content.style.display = "none";
-			} else {
-			  content.style.display = "block";
-			}
-		  });
-		}
-	</script>
-		
 
-<div id="steps">
-	<div class="button button3 ",id="next"><h3 >get one step</h3></div>
-	<div class="steps">        
-	 <div><h2 style="padding: 1px; list-style-type: circle; display: inline-block;  border: 0px solid black">Move 1 from A to C</h2></div>    
-	 <div><h2 style="padding: 1px; list-style-type: circle; display: inline-block; border: 0px solid black">Move 2 from A to B</h2></div>  
-	 <div><h2 style="padding: 1px; list-style-type: circle; display: inline-block;  border: 0px solid black">Move 3 from C to B</h2></div>
-	 <div><h2 style="padding: 1px; list-style-type: circle; display: inline-block;  border: 0px solid black">Move 1 from C to A</h2></div>
+<body style="padding-left: 150px;padding-right: 150px;padding-top: 20px;">
+
+	<link rel="stylesheet" href="https://jqwidgets.com/public/jqwidgets/styles/jqx.base.css" type="text/css" />
+	<link rel="stylesheet" href="https://jqwidgets.com/public/jqwidgets/styles/jqx.highcontrast.css" type="text/css" />
+	<link rel="stylesheet" href="./css/main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqwidgets/15.0.0/jqwidgets/jqxcore.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqwidgets/15.0.0/jqwidgets/jqxslider.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqwidgets/15.0.0/jqwidgets/jqxbuttons.min.js"></script>
+	
+	<div class="columns is-centered">
+		<div class="column">
+			<div class="v-collapsible-instruction-container v-instruction-container">
+				<div id="instruction-title" class="v-collapsible is-size-5">Instructions<br>move all the disks to last peg</div>
+				<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+					<ul style="list-style: disc;">
+		  <li>set number of disks on slider.</li>
+		  <li>click set disks to start the game</li>
+		  <li>GAME rules</li>
+		  <li>Only one disk can be moved at a time.</li>
+		  <li>Click <strong>Change Graph</strong> to get new graph</li>
+		  <li>a disk can only be moved if it is the uppermost disk on a stack</li>
+		  <li>No larger disk may be placed on top of a smaller disk</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
-	 
- </div>
 
+	<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
+		<div class="column is-2-desktop is-12-tablet is-12-mobile">
+			<div class="v-datalist-container" style="height:100%;">
+				<div class="v-datalist-title">Controls</div>
+				<div class="v-datalist-row">
+					<button class="v-button" onclick="Refresh()">Restart</button>
+				</div>
+			</div>
+		</div>
+		<div class="column is-8-desktop is-12-tablet is-12-mobile">
+			<div id="circuit-board">
+				<div id="working-area">
+				</div>
+			</div>
+		</div>
 
-
-<div id="algo">
-    <div class="button button2", id="next1"><h3>Algorithm</h3></div>
-    <div class="algo">   
-		     
-        <div><h2 style="padding: 0px; list-style-type: circle; display: inline-block;  border: 0px solid black">step </h2> </div>    
-        <div><h2 style="padding: 0px; list-style-type: circle; display: inline-block; border: 0px solid black">step 1 </h2></div>  
-        <div><h2 style="padding: 0px; list-style-type: circle; display: inline-block;  border: 0px solid black">step 2</h2></div>
-        <div><h2 style="padding: 0px; list-style-type: circle; display: inline-block;  border: 0px solid black">step 3 </h2></div>
+    <div class="column is-2-desktop is-4-tablet is-12-mobile">
+      <div class="v-datalist-container components-list">
+          <div class="v-datalist-title">Observations</div>
+          <div class="v-datalist-row">
+              <div id="observations"></div>
+          </div>
+      </div>
     </div>
-</div>
-   
 
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#jqxslider").jqxSlider({min: 3, max: 7, step: 1,width:"400px",theme: 'summer',showTickLabels: true,  ticksFrequency: 1, });
+			$('#jqxslideslider').bind('change', function (event) {
+              $('#sliderValue').html('Value: ' + event.args.value);
+          	});
+		});
+	</script>
+	<div id='sliderValue'></div>
+	<div id='jqxslider'></div>
 
-<button class="button button1" onClick="Refresh()">Restart</button>
+	<input type="button" value="set Disks" id="MyButton" >
+
 
 <script>
-    function Refresh() {
-        window.parent.location = window.parent.location.href;
-    }
+	function Refresh() {
+		var r = confirm("Are you sure you want to restart?");
+
+			if (r == true) {
+				window.parent.location = window.parent.location.href;
+			} else {
+				x = " ";
+			}
+	}
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-
 
 <div id="canves">
     <div class="curtain"></div>
@@ -102,7 +111,9 @@
 </div>
 
 <!-- Load application code at the end to ensure DOM is loaded -->
+<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
 <script type="module" src="./js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </body>
 </html>
 

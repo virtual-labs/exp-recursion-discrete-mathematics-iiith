@@ -1,36 +1,17 @@
 // Alert box using SweetAlert2 - https://limonte.github.io/sweetalert2
-$(function() {
-    var index = 0,
-      algo = $(".steps").children();
-    $("#next").click(function() {
-      index = (index + 1) % steps.length;
-      algo.eq(index).show().siblings();
-    })
-    $("#prev").click(function() {
-      index = (index - 1) % steps.length;
-      steps.eq(index).show().siblings();
-    })
-  })
 
-$(function() {
-    var index = 0,
-      algo = $(".algo").children();
-    $("#next1").click(function() {
-      index = (index + 1) % algo.length;
-      algo.eq(index).show().siblings();
-    })
-    $("#prev1").click(function() {
-      index = (index - 1) % algo.length;
-      algo.eq(index).show().siblings();
-    })
-  })
-  
+
+var observ = document.getElementById("observations"); 
 $(document).ready(function() {
+  $('#MyButton').click(function(){
+
+	var diskn = $("#jqxslider").jqxSlider('getValue');
+	$('#jqxslider').jqxSlider({ disabled:true }); 
 
 	// Variables
 	var holding = [],
 		moves,
-		disksNum = 3,
+		disksNum = diskn,
 		minMoves = 2**disksNum - 1,
 		$canves = $('#canves'),
 		$restart = $canves.find('.restart'),
@@ -68,6 +49,7 @@ $(document).ready(function() {
 					confirmButtonText: 'Play again!'
 				}).then(function(isConfirm) {
 					if (isConfirm) {
+						window.parent.location = window.parent.location.href;
 						initGame($tower.eq(0));
 					}
 				})
@@ -104,5 +86,5 @@ $(document).ready(function() {
 		var $this = $(this);
 		tower($this);
 	});
-
+  });
 });
