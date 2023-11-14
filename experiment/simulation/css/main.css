@@ -40,11 +40,11 @@ input[type=button]{
 background-color: #288EC8;
 border: none;
 color: white;
-display:absolute;
-top:30%;
-left:65%;
+display:relative;
+top:3%;
+left:3%;
 justify-content: center;
-position:absolute;
+position:relative;
 padding: 10px 20px;
 text-decoration: none;
 margin: 2px 2px;
