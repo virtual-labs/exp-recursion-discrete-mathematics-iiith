@@ -1,36 +1,18 @@
 // Alert box using SweetAlert2 - https://limonte.github.io/sweetalert2
-$(function() {
-    var index = 0,
-      algo = $(".steps").children();
-    $("#next").click(function() {
-      index = (index + 1) % steps.length;
-      algo.eq(index).show().siblings();
-    })
-    $("#prev").click(function() {
-      index = (index - 1) % steps.length;
-      steps.eq(index).show().siblings();
-    })
-  })
 
-$(function() {
-    var index = 0,
-      algo = $(".algo").children();
-    $("#next1").click(function() {
-      index = (index + 1) % algo.length;
-      algo.eq(index).show().siblings();
-    })
-    $("#prev1").click(function() {
-      index = (index - 1) % algo.length;
-      algo.eq(index).show().siblings();
-    })
-  })
-  
+
+var observ = document.getElementById("observations"); 
 $(document).ready(function() {
+  $('#MyButton').click(function(){
+	//$('#dropdown-list').val();
+	var diskn = $('#dropdown-list').val(); //$('#dropdown-list').val(); $("#jqxslider").jqxSlider('getValue');
+	$('#dropdown-list').attr('disabled', true);
+	//$('#jqxslider').jqxSlider({ disabled:true }); 
 
 	// Variables
 	var holding = [],
 		moves,
-		disksNum = 3,
+		disksNum = parseInt(diskn),
 		minMoves = 2**disksNum - 1,
 		$canves = $('#canves'),
 		$restart = $canves.find('.restart'),
@@ -54,20 +36,31 @@ $(document).ready(function() {
 	function countMove() {
 		moves++;
 		$movesCount.html(moves);
-
+		console.log(disksNum,$tower.eq(1).children().length,$tower.eq(2).children().length)
 		if (moves > minMoves - 1) {
             console.log(disksNum,$tower.eq(1).children().length,$tower.eq(2).children().length)
+			console.log($tower.eq(1).children().length, disksNum, $tower.eq(1).children().length.toString() === disksNum.toString())
+			console.log($tower.eq(2).children().length, disksNum, $tower.eq(2).children().length.toString() === disksNum.toString())
+			
 			if ($tower.eq(1).children().length === disksNum || $tower.eq(2).children().length === disksNum) {
+				console.log('Finished')
+				var msg = "Try with " + (disksNum+1).toString() + " disks";
+				observ.innerHTML = "<font size=4 color=green>" +
+            	"<b>You have finished Tower of Hanoi</b>" +
+            	"</font>" + "<br>"+
+            	"<br>"+ msg;
+
 				swal({
 					allowEscapeKey: false,
 					allowOutsideClick: false,
-					title: 'Congratulations! You Won!',
-					text: " ",
+					title: 'Congratulations! You Finished.',
+					text: msg,
 					type: 'success',
 					confirmButtonColor: '#8bc34a',
 					confirmButtonText: 'Play again!'
 				}).then(function(isConfirm) {
 					if (isConfirm) {
+						window.parent.location = window.parent.location.href;
 						initGame($tower.eq(0));
 					}
 				})
@@ -104,5 +97,5 @@ $(document).ready(function() {
 		var $this = $(this);
 		tower($this);
 	});
-
+  });
 });
