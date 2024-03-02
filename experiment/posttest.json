@@ -50,7 +50,7 @@
         "d": "All three are true about recursion"
       },
       "correctAnswer": "d",
-      "difficulty": "beginner"
+      "difficulty": "Intermediate"
     },
     {
       "question": "Which of the following is the base case in recursive implementation to find the factorial of a number?",
@@ -70,22 +70,21 @@
       "difficulty": "beginner"
     },
     {
-      "question": "Which of the following is true?",
+      "question": "The data structure used to implement recursive function calls _____",
       "answers": {
-        "a": "Recursion is always better than iteration",
-        "b": "Recursion uses more memory compared to iteration",
-        "c": " Recursion uses less memory compared to iteration",
-        "d": "Iteration is always better and simpler than recursion"
-        
+        "a": "Array",
+        "b": "Linked List",
+        "c": "Queue",
+        "d": "Stack"
       },
       "explanations": {
         "a": "",
-        "b": "Recursion uses more memory compared to iteration because every time the recursive function is called, the function call is stored in stack",
+        "b": "",
         "c": "",
-        "d": ""
+        "d": "stack is used to implement recursive function calls"
       },
-      "correctAnswer": "b",
-      "difficulty": "beginner"
+      "correctAnswer": "d",
+      "difficulty": "Intermediate"
     }
   ]
 }
