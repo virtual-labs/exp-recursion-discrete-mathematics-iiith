@@ -36,21 +36,58 @@
       "difficulty": "beginner"
     },
     {
-      "question": "",
+      "question": "Recursion is similar to which of the following?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Switch Case",
+        "b": "Loop",
+        "c": "If-else",
+        "d": "if elif else"
       },
       "explanations": {
         "a": "",
-        "b": "Explanation",
-        "c": "Explanation",
-        "d": "Explanation"
+        "b": " Recursion is similar to a loop",
+        "c": "",
+        "d": ""
       },
-      "correctAnswer": "c",
+      "correctAnswer": "b",
+      "difficulty": "Intermediate"
+    },
+    {
+      "question": "A recursive function without if and else conditions will always lead to?",
+      "answers": {
+        "a": "Finite loop",
+        "b": "Infinite loop",
+        "c": "Incorrect result",
+        "d": "Correct result"
+      },
+      "explanations": {
+        "a": "",
+        "b": "Infinite loop",
+        "c": "",
+        "d": ""
+        
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following is true?",
+      "answers": {
+        "a": "Recursion is always better than iteration",
+        "b": "Recursion uses more memory compared to iteration",
+        "c": " Recursion uses less memory compared to iteration",
+        "d": "Iteration is always better and simpler than recursion"
+        
+      },
+      "explanations": {
+        "a": "",
+        "b": "Recursion uses more memory compared to iteration because every time the recursive function is called, the function call is stored in stack",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "b",
+      "difficulty": "Intermediate"
     }
+    
   ]
 }
