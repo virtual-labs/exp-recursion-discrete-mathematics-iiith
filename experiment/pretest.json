@@ -10,10 +10,10 @@
         "d": "None of the above"
       },
       "explanations": {
-        "a": "For recursion to end at some point, there always has to be a condition for which the function will not call itself. This condition is known as base case.",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "Correct! The base case is the fundamental condition that stops the recursive process. Without it, recursion would continue indefinitely. For example, in factorial calculation, n=0 or n=1 serves as the base case.",
+        "b": "Incorrect. Worst case refers to the analysis of algorithm performance under the most unfavorable conditions, not the termination condition of recursion. It's a concept from complexity analysis.",
+        "c": "Incorrect. Best case is about algorithm performance under optimal conditions, not about stopping recursion. Like worst case, it's used in analyzing time complexity.",
+        "d": "Incorrect. Base case is indeed the correct term for the condition that stops recursion. This answer would mislead from this fundamental concept of recursive programming."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
@@ -27,10 +27,10 @@
         "d": "Smaller instances of different problems"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "In recursion, the solution of a problem depends on the solution of smaller instances of the same problem.",
-        "d": ""
+        "a": "Incorrect. Recursion specifically works with the same problem type, not different problems. Breaking into different problems would be a divide-and-conquer strategy, not pure recursion.",
+        "b": "Incorrect. Working with larger instances would create an infinite loop as the problem would keep growing instead of reaching a base case.",
+        "c": "Correct! Recursion solves problems by breaking them down into smaller versions of the same problem. For example, factorial(n) depends on factorial(n-1), which is a smaller instance of the same calculation.",
+        "d": "Incorrect. While recursion does break problems into smaller pieces, these must be instances of the same problem, not different problems. The solution strategy must remain consistent."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
@@ -44,10 +44,10 @@
         "d": "if elif else"
       },
       "explanations": {
-        "a": "",
-        "b": " Recursion is similar to a loop",
-        "c": "",
-        "d": ""
+        "a": "Incorrect. Switch case is a branching construct for multiple conditions, not a mechanism for repeated execution like recursion.",
+        "b": "Correct! Recursion and loops both provide ways to repeat operations. Any recursive solution can be transformed into an iterative one using loops. For example, both can be used to traverse arrays or calculate factorials.",
+        "c": "Incorrect. While if-else statements are often used within recursive functions to handle base cases, they don't capture the repetitive nature of recursion.",
+        "d": "Incorrect. Like simple if-else, if-elif-else is just a conditional structure. It doesn't provide the repeated execution capability that makes recursion similar to loops."
       },
       "correctAnswer": "b",
       "difficulty": "Intermediate"
@@ -61,11 +61,10 @@
         "d": "Correct result"
       },
       "explanations": {
-        "a": "",
-        "b": "Infinite loop",
-        "c": "",
-        "d": ""
-        
+        "a": "Incorrect. Without conditions to check for a base case, there's no way for the recursion to terminate finitely.",
+        "b": "Correct! Without conditional statements, there's no way to implement a base case, so the function will keep calling itself indefinitely. For example, a factorial function needs an if condition to check for n=0 or n=1.",
+        "c": "Incorrect. The issue isn't about producing incorrect results - the function won't produce any result as it will never terminate.",
+        "d": "Incorrect. Without conditions to check for and handle base cases, the function cannot terminate to produce any result, correct or incorrect."
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
@@ -75,19 +74,85 @@
       "answers": {
         "a": "Recursion is always better than iteration",
         "b": "Recursion uses more memory compared to iteration",
-        "c": " Recursion uses less memory compared to iteration",
+        "c": "Recursion uses less memory compared to iteration",
         "d": "Iteration is always better and simpler than recursion"
-        
       },
       "explanations": {
-        "a": "",
-        "b": "Recursion uses more memory compared to iteration because every time the recursive function is called, the function call is stored in stack",
-        "c": "",
-        "d": ""
+        "a": "Incorrect. The choice between recursion and iteration depends on the specific problem. Some problems are more naturally solved with recursion (like tree traversal), while others are better with iteration.",
+        "b": "Correct! Recursion typically uses more memory because each recursive call adds a new frame to the call stack, storing local variables and return addresses. For example, calculating factorial(5) recursively would use 5 stack frames.",
+        "c": "Incorrect. Each recursive call adds overhead by creating a new stack frame, making recursion generally more memory-intensive than iteration.",
+        "d": "Incorrect. Some problems, particularly those involving tree-like structures or divide-and-conquer algorithms, are more elegantly and clearly expressed using recursion."
       },
       "correctAnswer": "b",
       "difficulty": "Intermediate"
+    },
+    {
+      "question": "What happens to the function calls in recursion during execution?",
+      "answers": {
+        "a": "Stored in Queue",
+        "b": "Stored in Stack",
+        "c": "Stored in Heap",
+        "d": "Stored in Cache"
+      },
+      "explanations": {
+        "a": "Incorrect. Queues follow FIFO (First In First Out) order, which doesn't match how recursive calls are managed. The most recent call needs to complete first.",
+        "b": "Correct! Recursive calls are stored in the call stack, following LIFO (Last In First Out) order. For example, in factorial(3), the calls stack up as factorial(3) -> factorial(2) -> factorial(1), and resolve in reverse order.",
+        "c": "Incorrect. The heap is used for dynamic memory allocation of variables and objects, not for managing the sequence of function calls.",
+        "d": "Incorrect. Cache memory is used for storing frequently accessed data to improve performance, not for managing the execution order of function calls."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is tail recursion optimization?",
+      "answers": {
+        "a": "A technique to reduce the space complexity of recursive calls",
+        "b": "A way to convert recursion to iteration",
+        "c": "A compiler optimization that eliminates stack frames for recursive calls in tail position",
+        "d": "A method to reduce the time complexity of recursive algorithms"
+      },
+      "explanations": {
+        "a": "Incorrect. While tail recursion optimization does reduce space complexity, this is a side effect rather than the primary definition of the optimization.",
+        "b": "Incorrect. While tail-recursive functions can be mechanically converted to iteration, this describes the transformation process, not the optimization itself.",
+        "c": "Correct! Tail recursion optimization is when the compiler transforms recursive calls in tail position into jumps, reusing the same stack frame. For example, in optimized factorial, instead of building up stack frames, it can use a single frame with updated values.",
+        "d": "Incorrect. Tail recursion optimization affects space complexity by reducing stack usage, but it doesn't change the time complexity of the algorithm."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "In the context of recursive algorithms, what is 'memoization'?",
+      "answers": {
+        "a": "A technique to store previously calculated results to avoid redundant computations",
+        "b": "A method to reduce the stack space used by recursion",
+        "c": "A way to convert recursive algorithms to iterative ones",
+        "d": "A technique to optimize tail recursion"
+      },
+      "explanations": {
+        "a": "Correct! Memoization saves previously computed results to avoid recalculating them. For example, in calculating Fibonacci numbers, memoization stores F(n) values to avoid recalculating them in future recursive calls.",
+        "b": "Incorrect. While memoization might reduce the number of recursive calls, its primary purpose is to avoid redundant computations, not to manage stack space.",
+        "c": "Incorrect. Memoization is an optimization technique that can be applied to both recursive and iterative algorithms; it doesn't convert between them.",
+        "d": "Incorrect. Memoization and tail recursion optimization are distinct concepts - memoization caches results while tail recursion optimization manages stack frames."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which of the following problems is best solved using recursion?",
+      "answers": {
+        "a": "Finding the maximum element in an array",
+        "b": "Traversing a binary tree in any order",
+        "c": "Computing the sum of numbers from 1 to n",
+        "d": "Sorting an array using bubble sort"
+      },
+      "explanations": {
+        "a": "Incorrect. Finding the maximum in an array is a linear traversal problem that's more efficiently and clearly implemented using a simple loop.",
+        "b": "Correct! Tree traversal naturally fits recursion because of the tree's hierarchical structure. For example, to visit all nodes, you recursively process the left subtree, then the right subtree, making the code clear and elegant.",
+        "c": "Incorrect. Computing sum from 1 to n has a simple mathematical formula (n * (n+1) / 2) and is more efficiently solved either using this formula or a simple loop.",
+        "d": "Incorrect. Bubble sort is inherently iterative, requiring repeated passes through the array. Implementing it recursively would make the algorithm more complex without any benefits."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
     }
-    
   ]
 }

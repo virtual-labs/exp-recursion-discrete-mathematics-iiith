@@ -10,27 +10,27 @@
         "d": "fact(n)=n*fact(1)"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "fact(n)=n*fact(n-1) canbe used to find the factorial of a number",
-        "d": ""
+        "a": "Incorrect. This formula creates an infinite recursion as it calls fact(n) within itself without reducing n. For example, fact(5) would call fact(5) endlessly.",
+        "b": "Incorrect. This formula would increase n in each recursive call, leading to infinite recursion. For example, fact(5) would call fact(6), then fact(7), and so on.",
+        "c": "Correct! This is the proper recursive formula for factorial. It breaks down the problem by reducing n in each call. For example, fact(5) = 5 * fact(4) = 5 * 4 * fact(3) and so on until reaching the base case.",
+        "d": "Incorrect. This formula would always multiply n by fact(1), which doesn't properly calculate factorial. For example, fact(5) would just compute 5 * 1, giving 5 instead of 120."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "THe time complexity of recursive implementation to find the factorial of a number is ______",
+      "question": "The time complexity of recursive implementation to find the factorial of a number is ______",
       "answers": {
         "a": "O(n)",
         "b": "O(1)",
-        "c": "O(n^2)",
-        "d": "o(n^3)"
+        "c": "O(n²)",
+        "d": "O(n³)"
       },
       "explanations": {
-        "a": "Time complexity of recursive impelementation to find factorial is n as we iterate through a loop n times with O(1) inside the loop ",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "Correct! The recursive factorial makes n recursive calls, each doing O(1) work. For example, calculating fact(5) makes 5 calls: fact(5) → fact(4) → fact(3) → fact(2) → fact(1), resulting in O(n) time complexity.",
+        "b": "Incorrect. O(1) would mean constant time regardless of input size. Factorial recursion must process each number from n down to 1, which cannot be done in constant time.",
+        "c": "Incorrect. The factorial recursion makes linear number of calls, not quadratic. It doesn't need nested loops or recursive calls at each level.",
+        "d": "Incorrect. O(n³) would imply three nested levels of recursion or loops. Factorial only needs a single chain of recursive calls."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
@@ -44,10 +44,10 @@
         "d": "All the above"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": "All three are true about recursion"
+        "a": "Incorrect. While this is true, it's only one of several important properties of recursion. For example, recursive implementations of tree traversal are often shorter than iterative versions.",
+        "b": "Incorrect. This is true but incomplete. Successive term generation, like in Fibonacci sequences, is just one application of recursion.",
+        "c": "Incorrect. While this is true, it's just one aspect. Recursion excels in tree-like and branching processes like directory traversal.",
+        "d": "Correct! All three statements are true properties of recursion. Recursion provides concise code (like in quicksort), handles successive terms well (like in Fibonacci), and manages branching processes effectively (like in tree traversal)."
       },
       "correctAnswer": "d",
       "difficulty": "Intermediate"
@@ -61,10 +61,10 @@
         "d": "if(n==1) return 1"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": "factorial of 1 is 1 so if(n==1 ) return 1 is the base case"
+        "a": "Incorrect. While returning 1 is part of the base case, the condition check (if n==1 or n==0) is missing, making this incomplete.",
+        "b": "Incorrect. This is the recursive case that breaks down the problem, not the base case. It defines how to compute factorial for n > 1.",
+        "c": "Incorrect. Factorial of 0 is defined as 1, not 0. This would give incorrect results for all factorial calculations.",
+        "d": "Correct! This is the proper base case for factorial recursion. When n equals 1, we return 1 directly, stopping the recursion. For example, in fact(5), this base case is reached after reducing 5→4→3→2→1."
       },
       "correctAnswer": "d",
       "difficulty": "beginner"
@@ -78,13 +78,81 @@
         "d": "Stack"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": "stack is used to implement recursive function calls"
+        "a": "Incorrect. While arrays can store data sequentially, they don't provide the Last-In-First-Out behavior needed for managing recursive calls.",
+        "b": "Incorrect. Linked lists can be used to implement stacks, but they aren't directly used for managing recursive calls in program execution.",
+        "c": "Incorrect. Queues follow First-In-First-Out order, which doesn't match the nested nature of recursive calls where the most recent call must be resolved first.",
+        "d": "Correct! The call stack is used to manage recursive function calls. For example, in factorial(3), the stack would build up as: factorial(3) → factorial(2) → factorial(1), and then resolve in reverse order, following Last-In-First-Out behavior."
       },
       "correctAnswer": "d",
       "difficulty": "Intermediate"
+    },
+    {
+      "question": "What is the space complexity of a recursive function that makes n nested recursive calls?",
+      "answers": {
+        "a": "O(1)",
+        "b": "O(log n)",
+        "c": "O(n)",
+        "d": "O(n²)"
+      },
+      "explanations": {
+        "a": "Incorrect. Each recursive call adds a new frame to the call stack, so space usage cannot be constant O(1).",
+        "b": "Incorrect. While some recursive algorithms like binary search use O(log n) space, this question asks about n nested calls, which requires n stack frames.",
+        "c": "Correct! Each recursive call adds one frame to the call stack, and with n nested calls, we need O(n) space. For example, factorial(5) needs 5 stack frames: factorial(5) → factorial(4) → factorial(3) → factorial(2) → factorial(1).",
+        "d": "Incorrect. The space complexity is linear because each call only adds one frame, not n frames. We don't need n² space for n nested calls."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the primary difference between direct and indirect recursion?",
+      "answers": {
+        "a": "Direct recursion is more efficient than indirect recursion",
+        "b": "Direct recursion calls itself while indirect recursion involves a cycle of two or more functions",
+        "c": "Indirect recursion always leads to infinite loops",
+        "d": "Direct recursion can only be used with primitive data types"
+      },
+      "explanations": {
+        "a": "Incorrect. Efficiency depends on the specific implementation and use case, not on whether the recursion is direct or indirect.",
+        "b": "Correct! In direct recursion, a function calls itself directly (like factorial(n) calling factorial(n-1)), while indirect recursion creates a cycle of mutual calls (like isEven(n) calling isOdd(n-1) which calls isEven(n-2)).",
+        "c": "Incorrect. Indirect recursion, like direct recursion, can be properly terminated with appropriate base cases. The type of recursion doesn't determine whether it's infinite.",
+        "d": "Incorrect. Both direct and indirect recursion can work with any data type. The type of recursion is about the calling pattern, not the data being processed."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which optimization technique can help reduce both time and space complexity in recursive fibonacci calculation?",
+      "answers": {
+        "a": "Using global variables",
+        "b": "Converting to iteration",
+        "c": "Memoization",
+        "d": "Tail recursion"
+      },
+      "explanations": {
+        "a": "Incorrect. Global variables might save some space but don't address the fundamental problem of redundant calculations in recursive fibonacci.",
+        "b": "Incorrect. While iteration can improve space complexity, it's not the most efficient solution for reducing both time and space complexity while maintaining recursion.",
+        "c": "Correct! Memoization stores previously calculated fibonacci numbers, reducing time complexity from O(2ⁿ) to O(n) by eliminating redundant calculations. For example, fib(5) stores results for fib(4), fib(3), etc., reusing them instead of recalculating.",
+        "d": "Incorrect. Tail recursion optimization can help with space complexity but doesn't address the time complexity issue of redundant calculations in fibonacci."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "In the context of recursive algorithms, what is the 'recursive leap of faith'?",
+      "answers": {
+        "a": "Assuming the base case will eventually be reached",
+        "b": "Assuming the recursive calls work correctly for smaller inputs",
+        "c": "Believing that recursion is always better than iteration",
+        "d": "Trusting that the compiler will optimize recursive calls"
+      },
+      "explanations": {
+        "a": "Incorrect. While reaching the base case is important, the recursive leap of faith is about trusting the recursive process itself.",
+        "b": "Correct! The recursive leap of faith means trusting that recursive calls correctly solve smaller subproblems without worrying about their internal details. For example, when writing merge sort, we trust that the recursive calls will sort smaller subarrays correctly.",
+        "c": "Incorrect. This is a misconception about recursion versus iteration, not about the mental model used to design recursive solutions.",
+        "d": "Incorrect. Compiler optimization is a separate concept from the mental model used to design and understand recursive algorithms."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
     }
   ]
 }

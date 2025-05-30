@@ -10,7 +10,6 @@
 - - A larger disk cannot be placed on a smaller disk.
 
 
-
 - **n**: The number of disks to move, can be set using dropdown.
 - **source**: The rod where the disks currently are (initially A).
 - **destination**: The rod where the disks need to reach (C).
