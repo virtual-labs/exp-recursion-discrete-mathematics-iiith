@@ -50,7 +50,7 @@
         "d": "Incorrect. Like simple if-else, if-elif-else is just a conditional structure. It doesn't provide the repeated execution capability that makes recursion similar to loops."
       },
       "correctAnswer": "b",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     },
     {
       "question": "A recursive function without if and else conditions will always lead to?",
@@ -84,7 +84,7 @@
         "d": "Incorrect. Some problems, particularly those involving tree-like structures or divide-and-conquer algorithms, are more elegantly and clearly expressed using recursion."
       },
       "correctAnswer": "b",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     },
     {
       "question": "What happens to the function calls in recursion during execution?",

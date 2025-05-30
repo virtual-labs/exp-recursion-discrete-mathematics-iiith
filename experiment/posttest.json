@@ -50,7 +50,7 @@
         "d": "Correct! All three statements are true properties of recursion. Recursion provides concise code (like in quicksort), handles successive terms well (like in Fibonacci), and manages branching processes effectively (like in tree traversal)."
       },
       "correctAnswer": "d",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     },
     {
       "question": "Which of the following is the base case in recursive implementation to find the factorial of a number?",
@@ -84,7 +84,7 @@
         "d": "Correct! The call stack is used to manage recursive function calls. For example, in factorial(3), the stack would build up as: factorial(3) → factorial(2) → factorial(1), and then resolve in reverse order, following Last-In-First-Out behavior."
       },
       "correctAnswer": "d",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     },
     {
       "question": "What is the space complexity of a recursive function that makes n nested recursive calls?",
