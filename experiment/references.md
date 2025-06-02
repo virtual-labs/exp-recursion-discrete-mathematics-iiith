@@ -1,6 +1,6 @@
-# References
+### References and Further Reading
 
-## 📚 Textbooks
+#### 📚 Textbooks
 
 1. Kenneth H. Rosen, "Discrete Mathematics and Its Applications," 8th Edition, McGraw Hill Education, 2019.
    - Chapter 5: Recursion and Mathematical Induction
@@ -14,7 +14,7 @@
    - Chapter 2: Recursion
    - Clear explanations with practical implementations
 
-## 🌐 Web Resources
+#### 🌐 Web Resources
 
 1. GeeksforGeeks - Recursion
    - [Introduction to Recursion](https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/)
@@ -30,7 +30,7 @@
    - [Recursive Data Type](https://en.wikipedia.org/wiki/Recursive_data_type)
    - [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi)
 
-## 🎥 Video Lectures
+#### 🎥 Video Lectures
 
 1. NPTEL Courses
    - [Design and Analysis of Algorithms - Recursion](https://nptel.ac.in/courses/106/101/106101217/)
@@ -40,7 +40,7 @@
    - [Introduction to Algorithms - Divide & Conquer](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/lecture-1-algorithmic-thinking-peak-finding/)
    - [Mathematics for Computer Science - Recursion and Induction](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/)
 
-## 📝 Lecture Notes and Tutorials
+#### 📝 Lecture Notes and Tutorials
 
 1. [IITK Lecture Notes on Discrete Mathematics](https://home.iitk.ac.in/~arlal/book/mth202.pdf)
    - Comprehensive coverage of discrete mathematics including recursion
@@ -52,7 +52,7 @@
    - [Programming Abstractions - Recursion](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1176/lectures/Recursion/Recursion.pdf)
    - Excellent resource for understanding recursive problem-solving
 
-## 🔬 Interactive Learning Resources
+#### 🔬 Interactive Learning Resources
 
 1. Visualgo
    - [Recursion Tree Visualization](https://visualgo.net/en/recursion)
@@ -66,7 +66,7 @@
    - [Recursion Course](https://brilliant.org/courses/computer-science-fundamentals/recursion/)
    - Interactive lessons and problems on recursion
 
-## 🎯 Practice Resources
+#### 🎯 Practice Resources
 
 1. LeetCode
    - [Recursion I Study Plan](https://leetcode.com/study-plan/recursion/)
