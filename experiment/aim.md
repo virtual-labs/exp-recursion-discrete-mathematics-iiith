@@ -1,5 +1,6 @@
-- We propose this experiment to familiarize the student with fundamental notion of recursion 
+- Understand the fundamental concept of recursion and how functions can elegantly solve problems by calling themselves.
 
-- To be familiar with commonly occuring recursion problems.
+- Dive into commonly occurring recursion challenges that appear in programming and mathematics.
 
-- To be familiar with Fibonacci sequence and Tower of Hanoi.
+
+- Experience hands-on problem-solving with the ancient puzzle, Tower of Hanoi, that showcases recursive strategy in action.
