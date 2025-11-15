@@ -1,0 +1,22 @@
+
+/home/runner/work/exp-recursion-discrete-mathematics-iiith/exp-recursion-discrete-mathematics-iiith/experiment/simulation/mobile-detection.js
+  393:7   warning  'mobileDetection' is assigned a value but never used  no-unused-vars
+  396:38  warning  'module' is not defined                               no-undef
+  397:3   warning  'module' is not defined                               no-undef
+
+/home/runner/work/exp-recursion-discrete-mathematics-iiith/exp-recursion-discrete-mathematics-iiith/experiment/simulation/tower-of-hanoi.js
+   212:15  warning  'y' is assigned a value but never used          no-unused-vars
+   233:17  warning  Unexpected lexical declaration in case block    no-case-declarations
+   861:53  warning  'canvasHeight' is defined but never used        no-unused-vars
+   964:10  warning  'updateDiskCount' is defined but never used     no-unused-vars
+   981:10  warning  'undoMove' is defined but never used            no-unused-vars
+   985:10  warning  'startAutoSolve' is defined but never used      no-unused-vars
+   989:10  warning  'nextStep' is defined but never used            no-unused-vars
+   993:10  warning  'previousStep' is defined but never used        no-unused-vars
+   997:10  warning  'stopAutoSolve' is defined but never used       no-unused-vars
+  1001:10  warning  'loadExample' is defined but never used         no-unused-vars
+  1023:10  warning  'handleCommandInput' is defined but never used  no-unused-vars
+  1056:9   warning  'toggleAutoSolve' is not defined                no-undef
+
+✖ 15 problems (0 errors, 15 warnings)
+

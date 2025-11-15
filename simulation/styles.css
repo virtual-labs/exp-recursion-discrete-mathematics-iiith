@@ -1,0 +1,445 @@
+/* Common styles for Virtual Labs experiments */
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn {
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+input[type="range"] {
+  height: 0.5rem;
+  cursor: pointer;
+}
+
+/* Tower of Hanoi specific styles */
+
+/* Ensure equal heights for left and right containers */
+.grid.lg\\:grid-cols-4 {
+  align-items: stretch;
+  min-height: 60vh; /* Relative to viewport height */
+  max-height: 60vh; /* Prevent growth */
+}
+
+.lg\\:col-span-3 > .bg-white,
+.lg\\:col-span-1 > .bg-white {
+  height: 100%;
+  max-height: 60vh; /* Lock the height */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent content from breaking out */
+}
+
+.game-container {
+  position: relative;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the canvas area takes available space */
+.game-container .canvas-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#gameCanvas {
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  cursor: grab;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.2/1;
+  max-height: 50vh; /* Relative to viewport height */
+}
+
+#gameCanvas:active {
+  cursor: grabbing;
+}
+
+.game-status {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.status-item {
+  text-align: center;
+}
+
+.status-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-top: 2px;
+}
+
+.move-history {
+  overflow-y: auto;
+  padding: 6px;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  font-size: 0.75rem;
+  flex: 1;
+  min-height: 6em; /* Relative to font size */
+  max-height: 8em; /* Fixed maximum height */
+  height: 8em; /* Fixed height to prevent growth */
+}
+
+.move-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 4px;
+  margin: 1px 0;
+  background: #f9fafb;
+  border-radius: 3px;
+  font-size: 0.75rem;
+}
+
+.move-number {
+  font-weight: 600;
+  color: #4f46e5;
+  min-width: 30px;
+}
+
+.move-description {
+  flex: 1;
+  margin-left: 8px;
+  color: #374151;
+}
+
+.move-time {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Animation effects */
+.disk-moving {
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hint-highlight {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Success animation */
+.success-effect {
+  animation: celebrate 2s ease-in-out;
+}
+
+@keyframes celebrate {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.05) rotate(1deg); }
+  50% { transform: scale(1.1) rotate(-1deg); }
+  75% { transform: scale(1.05) rotate(1deg); }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    min-height: auto;
+  }
+  
+  .lg\\:col-span-3,
+  .lg\\:col-span-1 {
+    grid-column: span 1;
+  }
+  
+  .lg\\:col-span-3 > .bg-white,
+  .lg\\:col-span-1 > .bg-white {
+    height: auto;
+    min-height: 50vh;
+  }
+  
+  #gameCanvas {
+    aspect-ratio: 2/1;
+    max-height: 40vh;
+  }
+  
+  /* Reset right panel layout for mobile */
+  .lg\\:col-span-1 .space-y-4 {
+    height: auto;
+    display: block;
+  }
+  
+  .lg\\:col-span-1 .bg-purple-50 {
+    flex: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    padding: 12px;
+  }
+  
+  #gameCanvas {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    aspect-ratio: 1.8/1;
+    max-height: 35vh;
+  }
+  
+  .game-status {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  
+  .status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .status-label {
+    display: inline;
+    font-size: 0.875rem;
+  }
+  
+  .status-value {
+    display: inline;
+    font-size: 1.25rem;
+    margin-top: 0;
+  }
+  
+  /* Right sidebar responsive */
+  .lg\\:col-span-1 .bg-white {
+    margin-top: 1rem;
+    min-height: auto;
+  }
+  
+  .lg\\:col-span-3 > .bg-white,
+  .lg\\:col-span-1 > .bg-white {
+    min-height: auto;
+  }
+  
+  .move-history {
+    min-height: 6em;
+    max-height: 8em;
+  }
+}
+
+@media (max-width: 640px) {
+  html, body {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .max-w-5xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  #gameCanvas {
+    aspect-ratio: 1.6/1;
+    max-height: 30vh;
+  }
+  
+  .game-container {
+    padding: 8px;
+  }
+  
+  /* Make buttons more touch-friendly */
+  .btn {
+    min-height: 44px;
+    font-size: 0.875rem;
+  }
+  
+  /* Improve spacing for mobile */
+  .space-y-4 > * + * {
+    margin-top: 0.75rem;
+  }
+  
+  .space-y-3 > * + * {
+    margin-top: 0.5rem;
+  }
+  
+  .move-history {
+    min-height: 5em;
+    max-height: 6em;
+  }
+}
+
+/* Floating action buttons & panels */
+.floating-button {
+  position: fixed;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+.floating-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.floating-button.primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.floating-button.secondary {
+  background: linear-gradient(135deg, #e879f9, #c084fc);
+  color: white;
+  bottom: 6.5rem;
+  right: 2rem;
+}
+
+.floating-panel {
+  position: fixed;
+  max-width: 18rem;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 99;
+  bottom: 7rem;
+  right: 2rem;
+  transform-origin: bottom right;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.5rem;
+}
+
+.floating-panel.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.floating-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.floating-panel-close {
+  cursor: pointer;
+  color: #6b7280;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-panel-content {
+  max-height: calc(80vh - 3rem);
+  overflow-y: auto;
+}
+
+.panel-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Right panel layout optimization */
+.lg\\:col-span-1 .space-y-4 {
+  height: 100%;
+  max-height: calc(60vh - 3rem); /* Account for padding */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden; /* Prevent expansion */
+}
+
+.lg\\:col-span-1 .bg-blue-50,
+.lg\\:col-span-1 .bg-indigo-50 {
+  flex-shrink: 0;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.lg\\:col-span-1 .bg-purple-50 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden; /* Prevent expansion */
+}
+
+.lg\\:col-span-1 .bg-purple-50 .space-y-3 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* Canvas area optimization */

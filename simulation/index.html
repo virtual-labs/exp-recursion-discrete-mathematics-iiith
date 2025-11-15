@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tower of Hanoi - Recursion Visualization</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="mobile-detection.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="max-w-5xl mx-auto px-6 pb-16 space-y-12">
+
+    <section class="grid lg:grid-cols-4 gap-8">
+      <!-- Game Canvas Area -->
+      <div class="lg:col-span-3">
+        <div id="game-section" class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="game-container">
+            <div class="canvas-wrapper">
+              <canvas id="gameCanvas"></canvas>
+            </div>
+            <div class="game-status">
+              <div class="status-item">
+                <span class="status-label">Moves:</span>
+                <span id="moveCount" class="status-value">0</span>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Optimal:</span>
+                <span id="optimalMoves" class="status-value">7</span>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Time:</span>
+                <span id="timeElapsed" class="status-value">0:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Side Controls -->
+      <div class="lg:col-span-1">
+        <div class="bg-white p-6 rounded-xl shadow-lg space-y-4 h-full flex flex-col">
+          <!-- Recent Moves -->
+          <div class="bg-blue-50 p-3 rounded-lg">
+            <h3 class="font-semibold text-sm text-blue-800 mb-3">Recent Moves</h3>
+            <div id="moveHistory" class="move-history">
+              <p class="text-xs text-gray-600">No moves yet</p>
+            </div>
+          </div>
+          
+          <!-- Game Setup -->
+          <div class="bg-indigo-50 p-3 rounded-lg">
+            <h3 class="font-semibold text-sm text-indigo-800 mb-3">Game Setup</h3>
+            <div class="space-y-3">
+              <div>
+                <label class="block text-xs font-medium text-gray-700 mb-1">
+                  Disks: <span id="diskCountValue">3</span>
+                </label>
+                <input type="range" id="diskCountSlider" min="3" max="8" value="3" step="1" 
+                       class="w-full accent-indigo-600" onchange="updateDiskCount()">
+              </div>
+              
+              <div class="grid grid-cols-2 gap-2">
+                <button onclick="undoMove()" id="undoBtn" class="btn w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-1.5 px-3 rounded text-xs">
+                  Undo
+                </button>
+                <button onclick="resetGame()" class="btn w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-1.5 px-3 rounded text-xs">
+                  Reset
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Auto Solve Section -->
+          <div class="bg-purple-50 p-3 rounded-lg flex-grow">
+            <h3 class="font-semibold text-sm text-purple-800 mb-3">Auto Solve</h3>
+            <div class="space-y-3">
+              <button onclick="startAutoSolve()" class="btn w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-3 rounded text-sm" id="startAutoSolveBtn">
+                Start Auto Solve
+              </button>
+              
+              <div id="autoSolveControls" class="hidden space-y-2">
+                <div class="grid grid-cols-2 gap-2">
+                  <button onclick="previousStep()" id="prevBtn" class="btn w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-1.5 px-3 rounded text-xs">
+                    Previous
+                  </button>
+                  <button onclick="nextStep()" id="nextBtn" class="btn w-full bg-green-600 hover:bg-green-700 text-white font-bold py-1.5 px-3 rounded text-xs">
+                    Next
+                  </button>
+                </div>
+                <button onclick="stopAutoSolve()" class="btn w-full bg-red-600 hover:bg-red-700 text-white font-bold py-1.5 px-3 rounded text-xs">
+                  Stop Auto Solve
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Recursive Algorithm Explanation -->
+    <section class="grid md:grid-cols-2 gap-8">
+      <div class="card bg-white p-6 rounded-xl shadow">
+        <h2 class="text-2xl font-semibold text-indigo-700 mb-3">Recursive Solution</h2>
+        <div class="space-y-3 text-sm">
+          <p class="text-gray-700">To move n disks from source to destination:</p>
+          <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+            <li>Move n-1 disks from source to auxiliary tower</li>
+            <li>Move the largest disk from source to destination</li>
+            <li>Move n-1 disks from auxiliary to destination</li>
+          </ol>
+          <div class="bg-gray-100 p-3 rounded mt-4">
+            <code class="text-sm">
+              function hanoi(n, from, to, aux) {<br>
+              &nbsp;&nbsp;if (n == 1) move(from, to);<br>
+              &nbsp;&nbsp;else {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;hanoi(n-1, from, aux, to);<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;move(from, to);<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;hanoi(n-1, aux, to, from);<br>
+              &nbsp;&nbsp;}<br>
+              }
+            </code>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card bg-white p-6 rounded-xl shadow">
+        <h2 class="text-2xl font-semibold text-indigo-700 mb-3">Mathematical Analysis</h2>
+        <div class="space-y-3 text-sm">
+          <div>
+            <p class="font-medium text-gray-800">Recurrence Relation:</p>
+            <p class="text-gray-700">T(n) = 2T(n-1) + 1, T(1) = 1</p>
+          </div>
+          <div>
+            <p class="font-medium text-gray-800">Solution:</p>
+            <p class="text-gray-700">T(n) = 2ⁿ - 1</p>
+          </div>
+          <div class="bg-gray-100 p-3 rounded">
+            <p class="font-medium text-gray-800 mb-2">Examples:</p>
+            <ul class="space-y-1 text-gray-700">
+              <li>3 disks: 2³ - 1 = 7 moves</li>
+              <li>4 disks: 2⁴ - 1 = 15 moves</li>
+              <li>5 disks: 2⁵ - 1 = 31 moves</li>
+              <li>8 disks: 2⁸ - 1 = 255 moves</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Floating Info Button -->
+  <div class="floating-button secondary" id="infoButton">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+    </svg>
+  </div>
+  
+  <!-- Floating Info Panel -->
+  <div class="floating-panel" id="infoPanel">
+    <div class="floating-panel-header">
+      <h3 class="panel-title">Instructions</h3>
+      <div class="floating-panel-close" id="infoPanelClose">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </div>
+    </div>
+    <div class="floating-panel-content space-y-4">
+      <div class="bg-orange-50 p-3 rounded-lg">
+        <h3 class="font-semibold text-sm text-orange-800 mb-2">How to Play</h3>
+        <div class="text-xs space-y-1 text-gray-600">
+          <p>• Move all disks from Tower 1 to Tower 3</p>
+          <p>• Only one disk can be moved at a time</p>
+          <p>• A larger disk cannot be placed on a smaller disk</p>
+          <p>• Click and drag disks or use manual controls</p>
+        </div>
+      </div>
+      <div class="bg-indigo-50 p-3 rounded-lg">
+        <h3 class="font-semibold text-sm text-indigo-800 mb-2">Controls</h3>
+        <div class="text-xs space-y-1 text-gray-600">
+          <p>• Mouse: Click and drag disks</p>
+          <p>• Keyboard: 1,2,3 to select/move towers</p>
+          <p>• Space: Toggle disk selection</p>
+          <p>• R: Reset game</p>
+        </div>
+      </div>
+      <div class="bg-purple-50 p-3 rounded-lg">
+        <h3 class="font-semibold text-sm text-purple-800 mb-2">Auto Solve</h3>
+        <div class="text-xs space-y-1 text-gray-600">
+          <p>• Step through the recursive algorithm</p>
+          <p>• Watch how subproblems are solved</p>
+          <p>• Visualize recursion in action</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="tower-of-hanoi.js"></script>
+<script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+</html>
